@@ -14,14 +14,23 @@ variable "default_tags" {
   }
 }
 
-# Uncomment as needed
+variable "organization" {
+  type        = string
+  description = "TFC organization"
+}
 
-# variable "HCP_CLIENT_ID" {
-#   type        = string
-#   description = "The OAuth2 Client ID for API operations."
-# }
+variable "project_name" {
+  type        = string
+  description = "Name of the project to create a landing zone for"
+}
 
-# variable "HCP_CLIENT_SECRET" {
-#   type        = string
-#   description = "The OAuth2 Client Secret for API operations."
-# }
+variable "project_prefix" {
+  type        = string
+  description = "Prefix of the TFE project name"
+  default     = "nocode-lz"
+}
+
+variable "lz_template" {
+  description = "Git template repository to use for the management workspace"
+}
+
