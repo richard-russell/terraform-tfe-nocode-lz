@@ -43,16 +43,16 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | default\_tags | a set of tags to watermark the resources you deployed with Terraform. | `map(string)` | <pre>{<br>  "owner": "richard",<br>  "terraformed": "Do not edit manually."<br>}</pre> | no |
-| github\_owner | Owner of the Github org | `string` | n/a | yes |
+| github\_owner | Owner of the Github org | `string` | `""` | no |
 | github\_token | Github token to pass through to mgmt ws | `string` | n/a | yes |
 | iac\_repo\_template | Template to use for OAC repo creation | `string` | n/a | yes |
 | lz\_archetype | Github template repo to use for the LZ mgmt workspace repo | `string` | n/a | yes |
 | mgmt\_ws\_prefix | String to prefix the archetype name to give mgmt workspace and repo names | `string` | `"nocode-lz-mgmt"` | no |
 | mgmt\_ws\_template\_prefix | String to prefix the archetype name to give mgmt template repo name | `string` | `"nocode-lz-mgmt-template"` | no |
-| oauth\_token\_id | Oauth token ID used for associating workspace to VCS | `string` | n/a | yes |
+| oauth\_token\_id | Oauth token ID used for associating workspace to VCS | `string` | `""` | no |
 | project\_name | Name of the project to create a landing zone for | `string` | n/a | yes |
 | project\_prefix | Prefix for the TFE project name within the nocode module | `string` | `"nocode-lz"` | no |
-| tfc\_organization | TFC organization | `string` | n/a | yes |
+| tfc\_organization | TFC organization | `string` | `""` | no |
 | tfe\_token | TFE token to pass through to mgmt ws | `string` | n/a | yes |
 
 ### Outputs

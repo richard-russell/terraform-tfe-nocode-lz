@@ -17,6 +17,7 @@ variable "default_tags" {
 variable "github_owner" {
   type        = string
   description = "Owner of the Github org"
+  default     = ""
 }
 
 variable "github_token" {
@@ -54,11 +55,13 @@ variable "mgmt_ws_template_prefix" {
 variable "oauth_token_id" {
   type        = string
   description = "Oauth token ID used for associating workspace to VCS"
+  default     = ""
 }
 
 variable "tfc_organization" {
   type        = string
   description = "TFC organization"
+  default     = ""
 }
 
 variable "project_name" {

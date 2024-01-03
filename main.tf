@@ -9,6 +9,7 @@ terraform {
 }
 
 provider "github" {}
+provider "tfe" {}
 
 locals {
   project_name          = "${var.project_prefix}-${var.project_name}"
