@@ -83,13 +83,15 @@ resource "tfe_project_variable_set" "project" {
   project_id      = tfe_project.this.id
 }
 
-resource "tfe_variable" "github_owner" {
-  key          = "github_owner"
-  value        = var.github_owner
-  category     = "terraform"
-  workspace_id = tfe_workspace.lz_management.id
-  sensitive    = false
-  description  = "Owner of the Github org"
+# pass the nclz var set onto the mgmt workspace
+data "tfe_variable_set" "nclz_core" {
+  organization = var.tfc_organization
+  name         = "nclz_core"
+}
+
+resource "tfe_workspace_variable_set" "nclz_core" {
+  variable_set_id = data.tfe_variable_set.nclz_core.id
+  workspace_id    = tfe_workspace.lz_management.id
 }
 
 resource "tfe_variable" "iac_repo_template" {
@@ -101,24 +103,6 @@ resource "tfe_variable" "iac_repo_template" {
   description  = "Template to use for OAC repo creation"
 }
 
-resource "tfe_variable" "oauth_token_id" {
-  key          = "oauth_token_id"
-  value        = var.oauth_token_id
-  category     = "terraform"
-  workspace_id = tfe_workspace.lz_management.id
-  sensitive    = true
-  description  = "Oauth token ID used for associating workspace to VCS"
-}
-
-resource "tfe_variable" "tfc_organization" {
-  key          = "tfc_organization"
-  value        = var.tfc_organization
-  category     = "terraform"
-  workspace_id = tfe_workspace.lz_management.id
-  sensitive    = false
-  description  = "TFC organization"
-}
-
 resource "tfe_variable" "tfc_project" {
   key          = "tfc_project"
   value        = tfe_project.this.name
@@ -126,22 +110,4 @@ resource "tfe_variable" "tfc_project" {
   workspace_id = tfe_workspace.lz_management.id
   sensitive    = false
   description  = "TFC project ID"
-}
-
-resource "tfe_variable" "TFE_TOKEN" {
-  key          = "TFE_TOKEN"
-  value        = var.tfe_token
-  category     = "env"
-  workspace_id = tfe_workspace.lz_management.id
-  sensitive    = true
-  description  = "TFC token - to pass through to mgmt ws as env variable"
-}
-
-resource "tfe_variable" "GITHUB_TOKEN" {
-  key          = "GITHUB_TOKEN"
-  value        = var.github_token
-  category     = "env"
-  workspace_id = tfe_workspace.lz_management.id
-  sensitive    = true
-  description  = "Github token - to pass through to mgmt ws as env variable"
 }

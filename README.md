@@ -27,16 +27,13 @@ No modules.
 | [tfe_project_variable_set.project](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/project_variable_set) | resource |
 | [tfe_team.team](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/team) | resource |
 | [tfe_team_project_access.levels](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/team_project_access) | resource |
-| [tfe_variable.GITHUB_TOKEN](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
-| [tfe_variable.TFE_TOKEN](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
-| [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
 | [tfe_variable.iac_repo_template](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
-| [tfe_variable.oauth_token_id](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
 | [tfe_variable.project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
-| [tfe_variable.tfc_organization](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
 | [tfe_variable.tfc_project](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable) | resource |
 | [tfe_variable_set.project](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/variable_set) | resource |
 | [tfe_workspace.lz_management](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/workspace) | resource |
+| [tfe_workspace_variable_set.nclz_core](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/resources/workspace_variable_set) | resource |
+| [tfe_variable_set.nclz_core](https://registry.terraform.io/providers/hashicorp/tfe/0.51.1/docs/data-sources/variable_set) | data source |
 
 ### Inputs
 
@@ -44,8 +41,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | default\_tags | a set of tags to watermark the resources you deployed with Terraform. | `map(string)` | <pre>{<br>  "owner": "richard",<br>  "terraformed": "Do not edit manually."<br>}</pre> | no |
 | github\_owner | Owner of the Github org | `string` | `""` | no |
-| github\_token | Github token to pass through to mgmt ws | `string` | n/a | yes |
-| iac\_repo\_template | Template to use for OAC repo creation | `string` | n/a | yes |
+| iac\_repo\_template | Template to use for OAC repo creation | `string` | `"terraform-generic-template"` | no |
 | lz\_archetype | Github template repo to use for the LZ mgmt workspace repo | `string` | n/a | yes |
 | mgmt\_ws\_prefix | String to prefix the archetype name to give mgmt workspace and repo names | `string` | `"nocode-lz-mgmt"` | no |
 | mgmt\_ws\_template\_prefix | String to prefix the archetype name to give mgmt template repo name | `string` | `"nocode-lz-mgmt-template"` | no |
@@ -53,7 +49,6 @@ No modules.
 | project\_name | Name of the project to create a landing zone for | `string` | n/a | yes |
 | project\_prefix | Prefix for the TFE project name within the nocode module | `string` | `"nocode-lz"` | no |
 | tfc\_organization | TFC organization | `string` | `""` | no |
-| tfe\_token | TFE token to pass through to mgmt ws | `string` | n/a | yes |
 
 ### Outputs
 

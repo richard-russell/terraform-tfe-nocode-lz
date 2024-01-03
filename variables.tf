@@ -20,19 +20,10 @@ variable "github_owner" {
   default     = ""
 }
 
-variable "github_token" {
-  type        = string
-  description = "Github token to pass through to mgmt ws"
-}
-
-variable "tfe_token" {
-  type        = string
-  description = "TFE token to pass through to mgmt ws"
-}
-
 variable "iac_repo_template" {
   type        = string
   description = "Template to use for OAC repo creation"
+  default     = "terraform-generic-template"
 }
 
 variable "lz_archetype" {
