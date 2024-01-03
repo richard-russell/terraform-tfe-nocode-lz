@@ -22,7 +22,7 @@ variable "github_owner" {
 
 variable "iac_repo_template" {
   type        = string
-  description = "Template to use for OAC repo creation"
+  description = "Template to use for IAC repo creation"
   default     = "terraform-generic-template"
 }
 
@@ -34,7 +34,7 @@ variable "lz_archetype" {
 variable "mgmt_ws_prefix" {
   type        = string
   description = "String to prefix the archetype name to give mgmt workspace and repo names"
-  default     = "nocode-lz-mgmt"
+  default     = "nclz-mgmt"
 }
 
 variable "mgmt_ws_template_prefix" {
@@ -63,5 +63,5 @@ variable "project_name" {
 variable "project_prefix" {
   type        = string
   description = "Prefix for the TFE project name within the nocode module"
-  default     = "nocode-lz"
+  default     = "nclz-project"
 }
