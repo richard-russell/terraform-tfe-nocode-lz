@@ -1,8 +1,30 @@
 # terraform-tfe-nocode-lz
 
 ## About
-A no-code module to create landing zone resources including a management workspace spawned from a template repo, allowing
-various LZ archetypes to be chosen.
+A no-code module to create landing zone resources including a management workspace spawned from a template repo, allowing various LZ archetypes to be chosen.
+
+This module should contain centrally-managed resources under the control of the platfom team, e.g:
+TFC/E resources
+- LZ Project
+- Project teams (read, write, maintain)
+- Project team access
+- LZ management workspace
+- Variable sets, variables
+- Sentinel policy-sets
+Git VCS resources
+- Management LZ repository - select from templates
+- Teams
+CSP resources
+- Dynamic creds (OIDC, roles, policies)
+
+The management workspace is spawned from a choice of templates, allowing the platform team to define a number of different archetypes as starting points for the LZ structure. The management workspace / repo are then under the control of the app team, who are free to adapt and evolve the workspace structure to meet the changing needs of the project.
+
+No-code workspace to be placed in a project with varset including:
+- TFE_TOKEN - env variable - capable of creating projects and teams
+- GITHUB_TOKEN - env variable - capable of creating repos and webhooks
+- github_owner - terraform variable - github individual or organization
+- tfc_organization - terraform variable - TFC/TFE organization
+- oauth_token_id - terraform variable - oauth token ID of existing VCS connection, used to create the VCS-backed workspaces
 
 <!-- BEGIN_TF_DOCS -->
 
