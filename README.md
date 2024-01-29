@@ -1,7 +1,7 @@
-# terraform-tfe-nocode-lz
+# terraform-tfe-nocode-lz-flexible-aws
 
 ## About
-A no-code module to create landing zone resources including a management workspace spawned from a template repo, allowing various LZ archetypes to be chosen.
+A no-code module to create landing zone resources including a management workspace chosen from a list of template repos, allowing various LZ archetypes to be chosen.
 
 This module should contain centrally-managed resources under the control of the platfom team, e.g:
 TFC/E resources
